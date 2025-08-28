@@ -1,0 +1,280 @@
+# =============================================================================
+# DATA ENGINEERING PROJECT .gitignore
+# =============================================================================
+
+# =============================================================================
+# TERRAFORM
+# =============================================================================
+# Local .terraform directories
+**/.terraform/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore transient lock info files
+.terraform.tfstate.lock.info
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+# Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# =============================================================================
+# DOCKER
+# =============================================================================
+# Docker specific files
+.bash_history
+.jupyter/
+.local/
+.npm/
+.python_history
+docker-compose.override.yml
+
+# =============================================================================
+# DATA FILES
+# =============================================================================
+# Large data files (CSV, JSON, etc.)
+*.csv
+*.json
+*.parquet
+*.avro
+*.orc
+*.h5
+*.hdf5
+*.xlsx
+*.xls
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Data directories
+ny_taxi_postgres_data/
+mage_data/
+personal-gcp.json/
+
+# =============================================================================
+# SECURITY & KEYS
+# =============================================================================
+# API keys and secrets
+keys.json
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+*secrets*.json
+
+# =============================================================================
+# DEVELOPMENT TOOLS
+# =============================================================================
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Scratch files
+scratch*
+testfiles/
+test.ipynb
+
+# =============================================================================
+# NODE.JS (if any frontend components)
+# =============================================================================
+node_modules/
+.npmrc
+package-lock.json
+
+# =============================================================================
+# MAGE AI SPECIFIC
+# =============================================================================
+# Mage AI specific files
+mage_ai/server/data/files/**
+default_repo
+instance_metadata.json
+~/.mage_data
+mage_data*
+magic-zoomcamp
+
+# =============================================================================
+# COMPRESSED FILES
+# =============================================================================
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# =============================================================================
+# BACKUP FILES
+# =============================================================================
+*.backup
+*.bak
+*.old
+*.orig

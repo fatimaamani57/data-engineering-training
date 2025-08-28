@@ -1,0 +1,50 @@
+services:
+    postgres:
+        image: postgres:13
+        environment:
+            POSTGRES_USER: airflow
+            POSTGRES_PASSWORD: airflow
+            POSTGRES_DB: airflow
+        volumes:
+            - postgres-db-volume:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U airflow"]
+            interval: 10s
+            retries: 5
+        restart: always
+
+
+docker run -d --name pg-database `
+   -e POSTGRES_USER=root `
+   -e POSTGRES_PASSWORD=root `
+   -e POSTGRES_DB=ny_taxi `
+   -p 1234:5432 `
+   -v ${PWD}/ny_taxi_postgres_data:/var/lib/postgresql/data `
+   --network=pg-network `
+   postgres:13
+
+docker run -d `
+    -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" `
+    -e PGADMIN_DEFAULT_PASSWORD="root" `
+    -p 8080:80 `
+    --network=pg-network `
+    --name pgadmin4 `
+    dpage/pgadmin4
+
+$URL = "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_sample_2021-01.csv"
+
+
+docker run -it `
+    --network=pg-network `
+    taxi_injest:v001 `
+    --user=root `
+    --password=root `
+    --host=pg-database `
+    --port=5432 `
+    --db=ny_taxi `
+    --table_name=yellow_taxi_trips `
+    --url=$URL
+
+
+
+docker build -t taxi_injest:v001 .
